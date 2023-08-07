@@ -14,10 +14,10 @@ This is a simple web based music player app that you can use and enjoy it😍.
 
 ### Screenshots
 
-##Dark mode
+## Dark mode
 ![](./screenshot.png)
 
-##Light mode
+## Light mode
 ![](./screenshot-2.png)
 
 ---
