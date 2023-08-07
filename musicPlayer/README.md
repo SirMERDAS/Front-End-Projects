@@ -32,26 +32,26 @@ This is a simple web based music player app that you can use and enjoy it😍.
 
 ### I don't own any musics used in this projects and I got them from here👇:
 
-- https://ncs.io/Royalty
-  Song: Egzod, Maestro Chives, Neoni - Royalty [NCS Release]
-  Music provided by NoCopyrightSounds
-  Free Download/Stream: http://ncs.io/Royalty
+- https://ncs.io/Royalty\
+  Song: Egzod, Maestro Chives, Neoni - Royalty [NCS Release]\
+  Music provided by NoCopyrightSounds\
+  Free Download/Stream: http://ncs.io/Royalty\
   Watch: http://youtu.be/C5fLxtJH2Qs
 
 ---
 
-- https://ncs.io/hideyourheart
-  Song: VOLT VISION, BRIGHTDVWN - Hide Your Heart [NCS Release]
-  Music provided by NoCopyrightSounds
-  Free Download/Stream: http://ncs.io/hideyourheart
+- https://ncs.io/hideyourheart\
+  Song: VOLT VISION, BRIGHTDVWN - Hide Your Heart [NCS Release]\
+  Music provided by NoCopyrightSounds\
+  Free Download/Stream: http://ncs.io/hideyourheart\
   Watch: http://ncs.lnk.to/hideyourheartAT/youtube
 
 ---
 
-- https://ncs.io/Burned
-  Song: Henri Werner - Burned [NCS Release]
-  Music provided by NoCopyrightSounds
-  Free Download/Stream: http://ncs.io/Burned
+- https://ncs.io/Burned\
+  Song: Henri Werner - Burned [NCS Release]\
+  Music provided by NoCopyrightSounds\
+  Free Download/Stream: http://ncs.io/Burned\
   Watch: http://ncs.lnk.to/BurnedAT/youtube
 
 ---
