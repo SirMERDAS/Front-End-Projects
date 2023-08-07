@@ -1,9 +1,8 @@
 const $ = document;
 let musics = [
-  { id: 1, name: "02 Evgeny Grinko - Field" },
-  { id: 2, name: "Behzad Leito - Nesfe Raah" },
-  { id: 3, name: "OXYBUZ - Ketamine" },
-  { id: 4, name: "Xcho - I Can Fly" },
+  { id: 1, name: "Egzod, Maestro Chives, Neoni - Royalty [NCS Release]" },
+  { id: 2, name: "VOLT VISION, BRIGHTDVWN - Hide Your Heart [NCS Release]" },
+  { id: 3, name: "Henri Werner - Burned [NCS Release]" },
 ];
 
 let musicSeeker = $.querySelector("#musicSeeker");
@@ -80,7 +79,7 @@ function setTrackInfo() {
   let currentTrack = musics[trackNo];
   let rootPath = "assets/mainData/" + currentTrack.id + "/";
   let parseData = currentTrack.name.split("-");
-  let imgSource = rootPath + currentTrack.name + ".jpg";
+  let imgSource = rootPath + currentTrack.id + ".png";
   mainAudioHandler.setAttribute("src", rootPath + currentTrack.name + ".mp3");
   albumCover.setAttribute("src", imgSource);
   singerName.style.animation = "currentMusic 0.2s ease 1";
