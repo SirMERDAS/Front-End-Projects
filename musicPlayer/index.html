@@ -2,8 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- ! Preloader -->
-    <!-- ! Wait to Load -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Music player</title>
     <link rel="stylesheet" href="assets/style/style.css" />
@@ -16,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Pacifico&display=swap"
       rel="stylesheet"
     />
     <link
@@ -40,6 +38,14 @@
           </div>
         </div>
         <div class="col-md-8 mainContainer">
+          <div class="position-fixed connectionAlert">
+            <div class="alert alert-danger shadow-lg w-75 mx-auto" role="alert">
+              <i class="bi bi-exclamation-diamond"></i>
+
+              If you have issue in playing musics check your internet connection
+              and wait for musics to be downloaded.
+            </div>
+          </div>
           <div class="text-white w-100 rounded-5 shadow-lg">
             <div class="rounded-top-5 trackInfo shadow-lg h-50">
               <div class="container-fluid position-relative trackInfoContainer">
@@ -115,6 +121,27 @@
           </div>
         </div>
         <div class="col-md-2"></div>
+      </div>
+    </div>
+    <div
+      class="container-fluid mainFooter position-fixed bottom-0 py-2 shadow-lg"
+    >
+      <div class="row">
+        <div
+          class="col-12 text-center d-flex align-items-center justify-content-center"
+        >
+          Created with&nbsp;
+          <span class="text-danger"
+            ><i class="bi bi-heart-fill"></i>&nbsp;</span
+          >
+          by&nbsp;
+          <a
+            href="https://github.com/sirmerdas"
+            class="logo fs-4"
+            target="_blank"
+            >SIRMERDAS</a
+          >
+        </div>
       </div>
     </div>
     <script src="assets/js/app.js"></script>

@@ -7,8 +7,6 @@
   --textColor: #c77dff;
 }
 
-/*! Changing Bg animation */
-
 .light {
   --musicPlayerColor: #edebef;
   --backGround: #f0f0f0;
@@ -41,6 +39,11 @@ body {
 }
 .coverImg {
   border: 5px solid var(--musicPlayerColor) !important;
+}
+.connectionAlert {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .coverImg::before {
@@ -77,6 +80,12 @@ body {
 }
 .trackStatus {
   height: 100%;
+}
+.mainFooter {
+  color: var(--textColor);
+}
+.logo {
+  font-family: "Pacifico", cursive;
 }
 .trackStatus > div:nth-child(1) {
   height: 35%;

@@ -99,6 +99,7 @@ function setTrackInfo() {
 }
 
 function nextMusic() {
+  musicSeeker.value = 0;
   mainAudioHandler.addEventListener("waiting", function () {
     console.log("tes" + Math.random());
   });
@@ -215,5 +216,3 @@ themeController.addEventListener("click", changeTheme);
 musicSeeker.addEventListener("input", goToMinute);
 
 setInterval(setMusicCurrentStatus, 500);
-
-//TODO CHANGE MUSICS To NO COPY RIGHT MUSICS
