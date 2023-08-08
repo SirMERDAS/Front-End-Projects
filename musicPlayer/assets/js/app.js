@@ -18,6 +18,8 @@ let albumCover = $.querySelector("#albumCover");
 let themeController = $.getElementById("toggleTheme");
 let albumCoverBg = $.querySelector(".mainCoverBg");
 let mainAudioHandler = $.querySelector("audio");
+let volumeController = $.getElementById("audioVolume");
+let volumeControllerText = $.getElementById("volumeText");
 let musicStatus = false;
 let trackNo = 0;
 
@@ -43,6 +45,11 @@ function setMusicPlayerStats() {
   let mainDuration = musicDurationMinute + ":" + remainSeconds;
   maxDuration.innerHTML =
     mainDuration.length <= 4 ? "0" + mainDuration : mainDuration;
+  let allTrackGet = $.querySelectorAll("li[data-track-id]");
+  allTrackGet.forEach(function (item) {
+    item.style.backgroundSize = "0%";
+    item.children[0].style.display = "none";
+  });
 }
 
 function setMusicCurrentStatus() {
@@ -58,6 +65,18 @@ function setMusicCurrentStatus() {
   let currentPercent = ((currentMusicTime / musicDuration) * 100).toFixed(2);
   musicSeeker.style.backgroundSize = currentPercent + "%";
   musicSeeker.value = currentPercent;
+
+  let currentTrackId = mainAudioHandler.dataset.trackIdentifier;
+  let getCurrentTrack = $.querySelector(
+    `li[data-track-id='${currentTrackId}']`
+  );
+  getCurrentTrack.style = `
+  background-repeat: no-repeat;
+  background-image: linear-gradient( 259deg, #593ec5 0%, rgba(99, 66, 232, 0) 110% );
+  `;
+  getCurrentTrack.style.backgroundSize = currentPercent + "%";
+
+  getCurrentTrack.children[0].style = "display:block !important";
   if (musicSeeker.value >= 99.5) {
     nextMusic();
   }
@@ -81,6 +100,7 @@ function setTrackInfo() {
   let parseData = currentTrack.name.split("-");
   let imgSource = rootPath + currentTrack.id + ".png";
   mainAudioHandler.setAttribute("src", rootPath + currentTrack.name + ".mp3");
+  mainAudioHandler.dataset.trackIdentifier = currentTrack.id;
   albumCover.setAttribute("src", imgSource);
   singerName.style.animation = "currentMusic 0.2s ease 1";
   albumCoverBg.style.backgroundImage = `url("${imgSource}")`;
@@ -100,9 +120,7 @@ function setTrackInfo() {
 
 function nextMusic() {
   musicSeeker.value = 0;
-  mainAudioHandler.addEventListener("waiting", function () {
-    console.log("tes" + Math.random());
-  });
+
   if (trackNo < musics.length - 1) {
     trackNo += 1;
     if (!mainAudioHandler.paused) {
@@ -177,7 +195,6 @@ function changeTheme() {
   if (themeColor === "dark") {
     themeController.children[0].classList.toggle("darkModeToggle");
     $.body.className = "light";
-    console.log(themeController.children[0].children[0]);
     themeController.children[0].children[0].style.transform = "rotate(360deg)";
     themeController.children[0].children[0].className = "bi bi-sun-fill";
     localStorage.setItem("theme", "light");
@@ -191,14 +208,60 @@ function changeTheme() {
   }
 }
 
+function controlVolume() {
+  let volumeValue = volumeController.value;
+  volumeController.style.backgroundSize = volumeValue + "%";
+  volumeControllerText.innerText = volumeValue + " %";
+  mainAudioHandler.volume = volumeValue / 100;
+}
+
 function removeLoader() {
   let mainLoader = $.querySelector(".preloader");
   mainLoader.classList.add("d-none");
 }
 
+function setMusicsList() {
+  let allTracks = musics;
+  let liContainer = $.createDocumentFragment();
+  allTracks.forEach(function (track) {
+    let item = $.createElement("li");
+    item.className =
+      "list-group-item d-flex  musicNameList py-2 align-items-center rounded-3 my-2 border-0 track_info";
+    let parseData = track.name.split("-");
+    item.dataset.trackId = track.id;
+    item.innerText = track.id + "." + parseData[1];
+    item.insertAdjacentHTML(
+      "afterbegin",
+      `<div class="spinner-grow d-none currentMusicSpinner" role="status"></div>&nbsp;`
+    );
+
+    liContainer.append(item);
+    item.addEventListener("click", setMusic);
+  });
+
+  let trackListElem = $.getElementsByClassName("trackListsMenu");
+  trackListElem[0].append(liContainer);
+}
+function setMusic(e) {
+  let trackIdentifier = e.target.dataset.trackId;
+
+  trackNo = trackIdentifier - 1;
+  if (!mainAudioHandler.paused) {
+    setTrackInfo();
+    mainAudioHandler.play();
+  } else {
+    setTrackInfo();
+  }
+  mainAudioHandler.onloadedmetadata = function () {
+    setMusicPlayerStats();
+  };
+}
+
 function pageLoaded() {
   getTheme();
+  setMusicsList();
   setTrackInfo();
+  controlVolume();
   removeLoader();
 }
 
@@ -214,5 +277,6 @@ albumCover.addEventListener("animationend", removeAnimation);
 albumCoverBg.addEventListener("animationend", removeAnimation);
 themeController.addEventListener("click", changeTheme);
 musicSeeker.addEventListener("input", goToMinute);
+volumeController.addEventListener("input", controlVolume);
 
 setInterval(setMusicCurrentStatus, 500);

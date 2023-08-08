@@ -15,9 +15,11 @@ This is a simple web based music player app that you can use and enjoy it😍.
 ### Screenshots
 
 ## Dark mode
+
 ![](./screenshot.png)
 
 ## Light mode
+
 ![](./screenshot-2.png)
 
 ---
@@ -50,7 +52,7 @@ This is a simple web based music player app that you can use and enjoy it😍.
 
 - https://ncs.io/Burned \
   Song: Henri Werner - Burned [NCS Release] \
-  Music provided by NoCopyrightSounds \ 
+  Music provided by NoCopyrightSounds \
   Free Download/Stream: http://ncs.io/Burned \
   Watch: http://ncs.lnk.to/BurnedAT/youtube
 

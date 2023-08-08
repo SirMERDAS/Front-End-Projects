@@ -26,125 +26,177 @@
     <div class="preloader d-flex justify-content-center align-items-center">
       <div class="loader"></div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2 text-center">
-          <div class="themeToggle my-3 p-1" id="toggleTheme">
-            <div
-              class="themeControllerBtn d-flex justify-content-center align-items-center"
-            >
-              <i class="bi bi-moon-fill"></i>
+    <div class="d-flex flex-column" style="height: 100vh">
+      <div class="container mb-3">
+        <div class="row">
+          <div class="col-md-2 text-center">
+            <div class="themeToggle my-3 p-1" id="toggleTheme">
+              <div
+                class="themeControllerBtn d-flex justify-content-center align-items-center"
+              >
+                <i class="bi bi-moon-fill"></i>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-8 mainContainer">
-          <div class="position-fixed connectionAlert">
-            <div class="alert alert-danger shadow-lg w-75 mx-auto" role="alert">
-              <i class="bi bi-exclamation-diamond"></i>
+          <div class="col-md-8 mainContainer">
+            <div class="d-flex flex-column">
+              <div class="my-3 connectionAlert">
+                <div
+                  class="alert alert-danger shadow-lg w-100 mx-auto"
+                  role="alert"
+                >
+                  <i class="bi bi-exclamation-diamond"></i>
 
-              If you have issue in playing musics check your internet connection
-              and wait for musics to be downloaded.
-            </div>
-          </div>
-          <div class="text-white w-100 rounded-5 shadow-lg">
-            <div class="rounded-top-5 trackInfo shadow-lg h-50">
-              <div class="container-fluid position-relative trackInfoContainer">
-                <div class="mainCoverBg"></div>
-                <div class="row p-3 rounded-5 shadow-md">
-                  <div class="col-4 text-center">
-                    <img
-                      src=""
-                      alt="trackThumbnail"
-                      class="rounded-3 w-75 text-center coverImg"
-                      id="albumCover"
-                    />
-                    <div class=""></div>
-                  </div>
-                  <div class="col-8">
-                    <div class="d-flex flex-column trackStatus">
-                      <div class="d-flex align-items-center">
-                        <span class="track_info fs-5">Now Playing</span>
+                  If you have issue in playing musics check your internet
+                  connection and wait for musics to be downloaded.
+                </div>
+              </div>
+              <div class="text-white w-100 rounded-5 shadow-lg">
+                <div class="rounded-top-5 trackInfo shadow-lg h-50">
+                  <div
+                    class="container-fluid position-relative trackInfoContainer"
+                  >
+                    <div class="mainCoverBg"></div>
+                    <div class="row p-3 rounded-5 shadow-md">
+                      <div class="col-4 text-center">
+                        <img
+                          src=""
+                          alt="trackThumbnail"
+                          class="rounded-3 w-75 text-center coverImg"
+                          id="albumCover"
+                        />
+                        <div class=""></div>
                       </div>
-                      <div class="my-1">
-                        <span class="track_info" id="trackName"></span>
-                      </div>
-                      <div class="my-1">
-                        <span class="track_info" id="albumName"></span>
-                      </div>
-                      <div class="my-1">
-                        <span class="track_info" id="singerName"></span>
+                      <div class="col-8">
+                        <div class="d-flex flex-column trackStatus">
+                          <div class="d-flex align-items-center">
+                            <span class="track_info fs-5">Now Playing</span>
+                          </div>
+                          <div class="my-1">
+                            <span class="track_info" id="trackName"></span>
+                          </div>
+                          <div class="my-1">
+                            <span class="track_info" id="albumName"></span>
+                          </div>
+                          <div class="my-1">
+                            <span class="track_info" id="singerName"></span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div
-              class="musicPlayer w-100 h-50 py-4 musicPlayerContainer rounded-bottom-5 d-flex justify-content-center"
-            >
-              <audio id="mainMusic" preload="metadata"></audio>
-              <div class="d-flex w-100 flex-column align-items-center">
-                <div class="d-flex w-75 flex-wrap">
-                  <input
-                    type="range"
-                    class="mainMusicController my-2 placeholder-glow"
-                    id="musicSeeker"
-                    min="0"
-                    max="100"
-                    step="0.01"
-                    value="0"
-                  />
-                  <div class="d-flex w-100 px-1 timer">
-                    <div class="flex-grow-1" id="currentTime">00:00</div>
-                    <div class="" id="maxDuration">00:00</div>
+                <div
+                  class="musicPlayer shadow-lg w-100 h-50 py-4 musicPlayerContainer rounded-bottom-5 d-flex justify-content-center"
+                >
+                  <audio id="mainMusic" preload="metadata"></audio>
+                  <div class="d-flex w-100 flex-column align-items-center">
+                    <div class="d-flex w-75 flex-wrap">
+                      <input
+                        type="range"
+                        class="mainMusicController my-2 placeholder-glow"
+                        id="musicSeeker"
+                        min="0"
+                        max="100"
+                        step="0.01"
+                        value="0"
+                      />
+                      <div class="d-flex w-100 px-1 timer">
+                        <div class="flex-grow-1" id="currentTime">00:00</div>
+                        <div class="" id="maxDuration">00:00</div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="mx-3">
+                        <button class="musicBtn p-4 fs-3" id="prevBtn">
+                          <i class="bi bi-skip-start-fill"></i>
+                        </button>
+                      </div>
+                      <div class="mx-5">
+                        <button class="musicBtn p-4 fs-1" id="playBtn">
+                          <i class="bi bi-play-fill"></i>
+                        </button>
+                      </div>
+                      <div class="mx-3">
+                        <button class="musicBtn p-4 fs-3" id="nextBtn">
+                          <i class="bi bi-skip-end-fill"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex mt-4 w-50 align-items-center justify-content-center"
+                    >
+                      <span>
+                        <i
+                          class="bi bi-volume-up-fill fs-4"
+                          id="volumeIcon"
+                        ></i>
+                        &nbsp;
+                      </span>
+                      <input
+                        type="range"
+                        name="audioVolume"
+                        id="audioVolume"
+                        class="rounded-pill w-50"
+                        step="1"
+                        min="0"
+                        max="100"
+                        value="100"
+                      />
+
+                      <span id="volumeText" class="mx-2">&nbsp;100%</span>
+                    </div>
                   </div>
                 </div>
-                <div class="d-flex align-items-center">
-                  <div class="mx-3">
-                    <button class="musicBtn p-4 fs-3" id="prevBtn">
-                      <i class="bi bi-skip-start-fill"></i>
-                    </button>
+                <div class="m-2">
+                  <div
+                    class="collapseButton m-2 p-2 rounded-3"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainTrackList"
+                    aria-expanded="false"
+                    aria-controls="mainTrackList"
+                  >
+                    <i class="bi bi-music-note-list"></i>&nbsp;Tracks list
                   </div>
-                  <div class="mx-5">
-                    <button class="musicBtn p-4 fs-1" id="playBtn">
-                      <i class="bi bi-play-fill"></i>
-                    </button>
-                  </div>
-                  <div class="mx-3">
-                    <button class="musicBtn p-4 fs-3" id="nextBtn">
-                      <i class="bi bi-skip-end-fill"></i>
-                    </button>
+                </div>
+                <div class="collapse show" id="mainTrackList">
+                  <div
+                    class="w-100 p-2 rounded-bottom-5 trackLists d-flex justify-content-center"
+                  >
+                    <ul
+                      class="list-group list-group-flush trackListsMenu w-75"
+                    ></ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="col-md-2"></div>
         </div>
-        <div class="col-md-2"></div>
       </div>
-    </div>
-    <div
-      class="container-fluid mainFooter position-fixed bottom-0 py-2 shadow-lg"
-    >
-      <div class="row">
-        <div
-          class="col-12 text-center d-flex align-items-center justify-content-center"
-        >
-          Created with&nbsp;
-          <span class="text-danger"
-            ><i class="bi bi-heart-fill"></i>&nbsp;</span
+      <div class="container-fluid mainFooter py-2 shadow-lg mt-auto">
+        <div class="row">
+          <div
+            class="col-12 text-center d-flex align-items-center justify-content-center"
           >
-          by&nbsp;
-          <a
-            href="https://github.com/sirmerdas"
-            class="logo fs-4"
-            target="_blank"
-            >SIRMERDAS</a
-          >
+            Created with&nbsp;
+            <span class="text-danger"
+              ><i class="bi bi-heart-fill"></i>&nbsp;</span
+            >
+            by&nbsp;
+            <a
+              href="https://github.com/sirmerdas"
+              class="logo fs-4"
+              target="_blank"
+              >SIRMERDAS</a
+            >
+          </div>
         </div>
       </div>
     </div>
-    <script src="assets/js/app.js"></script>
+
+    <script src="assets/js/app.js" defer></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

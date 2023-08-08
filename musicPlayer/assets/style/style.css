@@ -27,7 +27,7 @@ body {
 
 .mainContainer {
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
   align-items: center;
 }
 .musicPlayerContainer {
@@ -41,9 +41,7 @@ body {
   border: 5px solid var(--musicPlayerColor) !important;
 }
 .connectionAlert {
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  text-align: justify;
 }
 
 .coverImg::before {
@@ -83,6 +81,7 @@ body {
 }
 .mainFooter {
   color: var(--textColor);
+  background: var(--backGround);
 }
 .logo {
   font-family: "Pacifico", cursive;
@@ -117,10 +116,76 @@ body {
   border: 3px solid rgba(23, 18, 33, 0.3);
   background: #9279f6;
 }
+.spinner-grow {
+  animation: var(--bs-spinner-animation-speed) ease-out infinite
+    var(--bs-spinner-animation-name);
+}
 .timer {
   color: #58526f;
 }
-input[type="range"] {
+.currentMusicSpinner {
+  width: 15px !important;
+  height: 15px !important;
+}
+#volumeText {
+  color: var(--textColor);
+}
+#audioVolume {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 2px solid var(--textColor);
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    to right,
+    var(--textColor) 100%,
+    transparent 0
+  );
+  cursor: pointer;
+  box-shadow: inset 3px 4px 10px -1px;
+  background-size: 0%;
+  height: 15px;
+  transition: 0.2s all ease;
+}
+#volumeIcon {
+  color: var(--textColor);
+}
+#audioVolume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px 7px rgba(146, 121, 246, 1);
+  border: 2px solid rgba(23, 18, 33, 0.3);
+  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    rgba(89, 62, 197, 1) 0%,
+    rgba(99, 66, 232, 1) 100%
+  );
+}
+#audioVolume::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px 7px rgba(146, 121, 246, 1);
+  border: 2px solid rgba(23, 18, 33, 0.3);
+  cursor: pointer;
+  background: var(--textColor);
+}
+
+#audioVolume::-webkit-slider-runnable-track,
+#audioVolume::-moz-range-track,
+#audioVolume::-ms-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+#musicSeeker {
   appearance: none;
   -webkit-appearance: none;
   background-repeat: no-repeat;
@@ -130,14 +195,12 @@ input[type="range"] {
     rgba(99, 66, 232, 0) 110%
   );
   background-size: 0%;
-  padding: 10px;
   transition: 0.2s all ease;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+#musicSeeker::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background-color: red;
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -146,10 +209,9 @@ input[type="range"]::-webkit-slider-thumb {
   background: #9279f6;
 }
 
-input[type="range"]::-moz-range-thumb {
+#musicSeeker::-moz-range-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background-color: red;
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -158,9 +220,9 @@ input[type="range"]::-moz-range-thumb {
   background: #9279f6;
 }
 
-input[type="range"]::-webkit-slider-runnable-track,
-input[type="range"]::-moz-range-track,
-input[type="range"]::-ms-track {
+#musicSeeker::-webkit-slider-runnable-track,
+#musicSeeker::-moz-range-track,
+#musicSeeker::-ms-track {
   -webkit-appearance: none;
   box-shadow: none;
   border: none;
@@ -252,6 +314,27 @@ input[type="range"]::-ms-track {
   border-radius: 50%;
   animation: spinLoader 2s ease infinite;
 }
+.trackListsMenu > li {
+  background-color: transparent;
+  color: var(--textColor);
+  cursor: pointer;
+}
+.trackListsMenu > li:hover {
+  margin-left: 10px;
+}
+.playingIcon {
+  animation: rotatePlayingIcon 1s ease-in infinite;
+}
+.collapseButton {
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    355deg,
+    #593ec5 0%,
+    rgba(99, 66, 232, 0) 110%
+  );
+  background-size: 100%;
+}
+
 @keyframes nextMusicAnimation {
   from {
     margin-left: -50px;
@@ -295,5 +378,14 @@ input[type="range"]::-ms-track {
     border-bottom: 10px solid transparent;
     border-left: 10px solid #9279f6;
     rotate: 360deg;
+  }
+}
+
+@keyframes rotatePlayingIcon {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
   }
 }
