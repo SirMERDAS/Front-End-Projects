@@ -1,0 +1,118 @@
+:root {
+  --musicPlayerColor: #1e1c29;
+  --backGround: #18171f;
+  --musicSeekerColor: #0f0c1a;
+  --controlBtnBorder: rgba(34, 31, 46, 1);
+  --musicBtnShadow: rgba(255, 255, 255, 0.3);
+  --textColor: #c77dff;
+}
+
+.light {
+  --musicPlayerColor: #edebef;
+  --backGround: #f0f0f0;
+  --musicSeekerColor: #dedde3;
+  --controlBtnBorder: rgba(248, 248, 248, 1);
+  --musicBtnShadow: rgba(0, 0, 0, 0.3);
+  --textColor: rgba(95, 48, 193, 1);
+}
+
+* {
+  transition: 0.2s all ease;
+}
+body {
+  font-family: "Open Sans", sans-serif !important;
+  /* background-color: var(--backGround) !important; */
+  transition: 0.7s all ease !important;
+}
+.mainGameContainer {
+  background: #3a7bd5;
+  /* background: -webkit-linear-gradient(168deg, #3a6073, #3a7bd5);
+  background: linear-gradient(168deg, #3a6073, #3a7bd5); */
+}
+#timer {
+  width: 100px;
+  height: 50px;
+  background-color: #f6f6f6;
+}
+
+.itemX {
+  background-color: #f2f2f2;
+  width: 60px !important;
+  height: 60px;
+  cursor: pointer;
+}
+.teset {
+  border: 1px solid #2193b0;
+  outline: 1px solid #2193b0;
+}
+.logo {
+  font-family: "Pacifico", cursive;
+}
+.pad-item {
+  transition: 0.3s all ease;
+}
+.pad-item:hover {
+  box-shadow: inset 3px 3px 6px 5px rgba(0, 0, 0, 0.4);
+  transition: 0.3s all ease;
+}
+.pad-icon {
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-size: contain;
+}
+
+.xMoveBg {
+  background-image: url("../img/x.svg");
+}
+.oMoveBg {
+  background-image: url("../img/o.svg");
+}
+
+.xMove {
+  color: #f54d62;
+  text-shadow: 2px 2px 12px #f54d62;
+}
+.oMove {
+  color: #01bfd7;
+  text-shadow: 2px 2px 12px #01bfd7;
+}
+.winLine {
+  background-color: #87e43a !important;
+}
+.deActive {
+  background-color: #61677a;
+  cursor: none;
+}
+
+@keyframes gelatine {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
+@keyframes gelatineWin {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.8, 1.2);
+  }
+  50% {
+    transform: scale(1.2, 0.8);
+  }
+  75% {
+    transform: scale(0.9, 1.1);
+  }
+}
