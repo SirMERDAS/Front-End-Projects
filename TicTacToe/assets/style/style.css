@@ -77,12 +77,14 @@ body {
   color: #01bfd7;
   text-shadow: 2px 2px 12px #01bfd7;
 }
+.tieGame {
+  text-shadow: 2px 2px 12px rgba(var(--bs-warning-rgb));
+}
 .winLine {
   background-color: #87e43a !important;
 }
 .deActive {
   background-color: #61677a;
-  cursor: none;
 }
 
 @keyframes gelatine {
@@ -114,5 +116,16 @@ body {
   }
   75% {
     transform: scale(0.9, 1.1);
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
