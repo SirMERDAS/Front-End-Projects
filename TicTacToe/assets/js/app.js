@@ -10,6 +10,7 @@ let gamePerson = $.getElementById("gameModePerson");
 let gameCpu = $.getElementById("gameModeCpu");
 let gameMode = $.getElementById("gameMode");
 let gameModeAnnounce = $.getElementById("mode");
+let movesName = $.getElementById("movesAnnounce");
 
 let cpuMove = "O";
 let personMove = "X";
@@ -158,13 +159,17 @@ function checkEasyWin() {
   easyWinning.forEach(function (easyWin) {
     if (
       (gameBoard[easyWin[0]] === gameBoard[easyWin[1]] &&
-        gameBoard[easyWin[1]] == cpuMove) ||
+        gameBoard[easyWin[1]] == cpuMove &&
+        gameBoard[easyWin[8]] == "") ||
       (gameBoard[easyWin[2]] === gameBoard[easyWin[3]] &&
-        gameBoard[easyWin[3]] == cpuMove) ||
+        gameBoard[easyWin[3]] == cpuMove &&
+        gameBoard[easyWin[8]] == "") ||
       (gameBoard[easyWin[4]] === gameBoard[easyWin[5]] &&
-        gameBoard[easyWin[5]] == cpuMove) ||
+        gameBoard[easyWin[5]] == cpuMove &&
+        gameBoard[easyWin[8]] == "") ||
       (gameBoard[easyWin[6]] === gameBoard[easyWin[6]] &&
-        gameBoard[easyWin[7]] == cpuMove)
+        gameBoard[easyWin[7]] == cpuMove &&
+        gameBoard[easyWin[8]] == "")
     ) {
       returningValue = easyWin[8];
     }
@@ -323,9 +328,18 @@ function makeCpuMove() {
     currentPlayer = cpuMove;
     updateGameBoard(cpuPlace, cpuMove);
     updatePadItem(padIcon);
-    console.log(currentPlayer);
-    changePlayer();
-    console.log(currentPlayer);
+    padItem.removeEventListener("click", playerMove);
+    let winStatus = checkWin();
+    if (checkEndGame() && winStatus) {
+      winnerTextAnnounce.innerHTML = `<span class="tieGame">No place left, Game is Tie! &nbsp;<i class='bi bi-emoji-dizzy-fill'></i></span>`;
+      winnerTextAnnounce.classList.remove("opacity-0");
+      winnerTextAnnounce.style.animationDelay = "0.5";
+      winnerTextAnnounce.style.animation = "fade-in-left 1s ease 1";
+      winnerTextAnnounce.classList.add("text-primary");
+    }
+    if (winStatus) {
+      changePlayer();
+    }
   }
 }
 
@@ -337,7 +351,6 @@ function playerMove(e) {
   updateGameBoard(padIconKey, currentPlayer);
   updatePadItem(padIcon);
   currentPad.removeEventListener("click", playerMove);
-  makeCpuMove();
   let winStatus = checkWin();
   if (checkEndGame() && winStatus) {
     winnerTextAnnounce.innerHTML = `<span class="tieGame">No place left, Game is Tie! &nbsp;<i class='bi bi-emoji-dizzy-fill'></i></span>`;
@@ -348,16 +361,20 @@ function playerMove(e) {
   }
   if (winStatus) {
     changePlayer();
+    if (mainMode == "pVc") {
+      makeCpuMove();
+    }
   }
 }
 
 function pageLoad() {
   let starterPlayer = setStarter();
   currentPlayer = starterPlayer;
-  if (currentPlayer === cpuMove) {
-    makeCpuMove();
-  } else {
-    changePlayer();
+  changePlayer();
+  if (currentPlayer == cpuMove) {
+    if (mainMode == "pVc") {
+      makeCpuMove();
+    }
   }
 }
 
@@ -365,18 +382,18 @@ function selectGameMode(e) {
   if (e.target.dataset.gameMode == "pVp") {
     gameModeAnnounce.innerText = "Person VS Person";
   } else {
+    movesName.style = "height: 100%;opacity:1;";
     gameModeAnnounce.innerText = "Person VS CPU";
   }
   gameMode.style = "height: 0 !important;opacity:0;";
-  // setTimeout(function () {
-  //   gameMode.style = "display:none !important";
-  //   console.log("test");
-  // }, 200);
   mainMode = e.target.dataset.gameMode;
+
+  pageLoad();
 }
 
 function resetGame() {
   gameMode.style = "height: 100% !important;opacity:1;";
+  movesName.style = "height: 0%;opacity:0;";
   mainMode = "";
   allGamePad.forEach(function (gamePad) {
     gamePad.classList.remove("deActive");
@@ -402,10 +419,9 @@ function resetGame() {
     7: "",
     8: "",
   };
-  pageLoad();
 }
 
-window.onload = pageLoad();
+// window.onload = pageLoad();
 allGamePad.forEach(function (item) {
   item.addEventListener("click", playerMove);
 });
