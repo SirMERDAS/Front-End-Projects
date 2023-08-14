@@ -1,0 +1,25 @@
+:root {
+  --musicPlayerColor: #1e1c29;
+  --backGround: #18171f;
+  --musicSeekerColor: #0f0c1a;
+  --controlBtnBorder: rgba(34, 31, 46, 1);
+  --musicBtnShadow: rgba(255, 255, 255, 0.3);
+  --textColor: #c77dff;
+}
+
+.light {
+  --musicPlayerColor: #edebef;
+  --backGround: #f0f0f0;
+  --musicSeekerColor: #dedde3;
+  --controlBtnBorder: rgba(248, 248, 248, 1);
+  --musicBtnShadow: rgba(0, 0, 0, 0.3);
+  --textColor: rgba(95, 48, 193, 1);
+}
+
+* {
+  transition: 0.2s all ease;
+}
+body {
+  font-family: "Open Sans", sans-serif !important;
+  transition: 0.7s all ease !important;
+}
