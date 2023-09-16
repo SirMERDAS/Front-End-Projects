@@ -57,6 +57,10 @@ This is a simple web based music player app that you can use and enjoy it😍.
   Watch: http://ncs.lnk.to/BurnedAT/youtube
 
 ---
+## Design 
+The original Ui design is taken from here : 
+https://www.figma.com/community/file/892200806551521437
+
 
 ## Built with
 
