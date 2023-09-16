@@ -22,7 +22,8 @@ Simple web based music player that you can download and use it on your website i
 
 Web based TicTacToe game that support person vs person and also person vs computer.
 Take a look😀, play🤗, Have fun😍.
-####Live version : https://sirmerdas.github.io/Front-End-Projects/TicTacToe/
+
+#### Live version : https://sirmerdas.github.io/Front-End-Projects/TicTacToe/
 
 ### screenshots
 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Front end projects</title>
+    <style>
+      * {
+        transition: 0.5s all ease;
+      }
+      body {
+        font-family: "Open Sans", sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+        background-color: #f2f2f2;
+        padding: 0;
+      }
+      .container {
+        width: 70%;
+        margin: 0 auto;
+        height: 100vh;
+      }
+      .main {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+      }
+      .item {
+        width: 45%;
+        margin: 1rem;
+        border: 2px solid rgba(0, 0, 0, 0.4);
+        border-radius: 1.2rem;
+        padding: 10px;
+      }
+      .item:is(:hover) {
+        box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.4);
+      }
+      .item > a {
+        text-decoration: none;
+        color: #2e8bc0;
+      }
+      .item > a > img {
+        width: 100%;
+        border-radius: 1rem;
+      }
+      @media (max-width: 991.98px) {
+        .container {
+          width: 100%;
+        }
+        .item {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <h1>Front end projects List :</h1>
+        <div class="item">
+          <a href="musicPlayer/">
+            <h2>Simple music player app</h2>
+            <img src="musicPlayer/screenshot.png" alt="MusicPlayer" />
+          </a>
+        </div>
+        <div class="item">
+          <a href="TicTacToe/">
+            <h2>TicTacToe game</h2>
+            <img src="TicTacToe/screenshot.png" alt="TicTacToe" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
