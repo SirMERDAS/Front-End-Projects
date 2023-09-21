@@ -1,5 +1,7 @@
 # Front End projects - A repository that you can find my training projects.
 
+![LICENSE](https://img.shields.io/github/license/SirMERDAS/Front-End-Projects) ![Version](https://img.shields.io/github/v/release/SirMERDAS/Front-End-Projects)
+
 ## List of current projects :
 
 - [Simple music player app](#music-player-app).
